@@ -1,0 +1,64 @@
+
+include_directories(include)
+
+add_executable(test_bytes src/test_bytes.cpp)
+add_test(test_bytes_swap test_bytes swap)
+add_test(test_bytes_endianness test_bytes endianness)
+
+add_executable(test_point src/test_point.cpp)
+add_test(test_point_construction test_point construction)
+add_test(test_point_arithmetic test_point arithmetic)
+
+add_executable(test_vector src/test_vector.cpp)
+add_test(test_vector_construction test_vector construction)
+add_test(test_vector_arithmetic test_vector arithmetic)
+add_test(test_vector_length test_vector length)
+add_test(test_vector_normalize test_vector normalize)
+
+add_executable(test_color src/test_color.cpp)
+add_test(test_color_construction test_color construction)
+
+add_executable(test_shape_plane src/test_shape_plane.cpp)
+add_test(test_shape_plane_construction test_shape_plane construction)
+add_test(test_shape_plane_ray_hit test_shape_plane ray_hit)
+add_test(test_shape_plane_normal test_shape_plane normal)
+
+add_executable(test_shape_sphere src/test_shape_sphere.cpp)
+add_test(test_shape_sphere_construction test_shape_sphere construction)
+add_test(test_shape_sphere_ray_hit test_shape_sphere ray_hit)
+add_test(test_shape_sphere_normal test_shape_sphere normal)
+
+add_executable(test_shape_triangle src/test_shape_triangle.cpp)
+add_test(test_shape_triangle_construction test_shape_triangle construction)
+add_test(test_shape_triangle_ray_hit test_shape_triangle ray_hit)
+add_test(test_shape_triangle_normal test_shape_triangle normal)
+
+add_executable(test_ray src/test_ray.cpp)
+add_test(test_ray_construction test_ray construction)
+
+add_executable(test_camera src/test_camera.cpp)
+add_test(test_camera_construction test_camera construction)
+add_test(test_camera_get_ray test_camera get_ray)
+
+add_executable(test_light src/test_light.cpp)
+add_test(test_light_construction test_light construction)
+
+add_executable(test_material src/test_material.cpp)
+add_test(test_material_construction test_material construction)
+add_test(test_material_vector test_material vector)
+
+add_executable(test_texture src/test_texture.cpp)
+add_test(test_texture_construction test_texture construction)
+add_test(test_texture_sample test_texture sample)
+
+add_executable(test_image src/test_image.cpp)
+add_test(test_image_construction test_image construction)
+add_test(test_image_indexing test_image indexing)
+add_test(test_image_save_bmp_file test_image save_bmp_file)
+
+add_executable(test_raytracer src/test_raytracer.cpp)
+target_link_libraries(test_raytracer render)
+add_test(test_raytracer_construction test_raytracer construction)
+add_test(test_raytracer_render test_raytracer render)
+add_test(test_raytracer_render_parallel test_raytracer render_parallel)
+

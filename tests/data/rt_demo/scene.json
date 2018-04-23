@@ -1,0 +1,47 @@
+{
+  "camera":{
+    "position":[-500.0,-1000.0,1000.0],
+    "look_at":[0.0,0.0,-100.0],
+    "up":[0.0,0.0,1.0]
+  },
+  "image":{
+    "width":640,
+    "height":480,
+    "distance":1000.0,
+    "sample_side":2
+  },
+  "_image":{
+    "width":1280,
+    "height":1024,
+    "distance":2000.0,
+    "sample_side":2
+  },
+  "lights":[
+    {"position":[-600.0, 600.0,1000.0],"color":[ 0.7,0.7,0.7]},
+    {"position":[ 600.0,-600.0,1000.0],"color":[0.25,0.25,0.0]}
+  ],
+  "materials":{
+    "yellow" :{"ambient":[0.15,0.15,0.0],"diffuse": 0.3,"specular": 0.3,"specular_k":15,"reflection": 0.0},
+    "red"    :{"ambient":[ 0.2, 0.0,0.0],"diffuse": 0.3,"specular": 0.3,"specular_k":15,"reflection": 0.0},
+    "green"  :{"ambient":[ 0.0, 0.1,0.0],"diffuse": 0.3,"specular": 0.3,"specular_k":15,"reflection": 0.0},
+    "black_r":{"ambient":[ 0.0, 0.0,0.0],"diffuse":0.05,"specular":0.95,"specular_k":15,"reflection":0.75},
+    "green_r":{"ambient":[ 0.0, 0.1,0.0],"diffuse":0.05,"specular":0.95,"specular_k":15,"reflection":0.25}
+  },
+  "textures":{
+    "floor":{"type":1,"target":"AMBIENT","frequency": 0.05,"amplitude":1.0},
+    "amb3" :{"type":3,"target":"AMBIENT","frequency":0.005,"amplitude":1.0},
+    "amb4" :{"type":4,"target":"AMBIENT","frequency":0.025,"amplitude":1.0},
+    "norm1":{"type":1,"target":"NORMAL" ,"frequency": 0.12,"amplitude":0.3}
+  },
+  "shapes":[
+    {"sphere":{"center":[-150.0,-150.0,0.0],"radius":145.0},"material":"yellow" ,"textures":["amb4"]},
+    {"sphere":{"center":[ 150.0,-150.0,0.0],"radius":145.0},"material":"black_r","textures":[]},
+    {"sphere":{"center":[ 150.0, 150.0,0.0],"radius":145.0},"material":"red"    ,"textures":["amb3"]},
+    {"sphere":{"center":[-150.0, 150.0,0.0],"radius":145.0},"material":"black_r","textures":["norm1"]},
+
+    {"plane":{"point":[0.0,0.0,-200.0],"normal":[0.0,0.0,1.0]},"material":"green_r","textures":["floor"]},
+
+    {"_triangle":{"vertices":[[0.0,0.0,200.0],[120.0,0.0,200.0],[100.0,100.0,200.0]]},
+     "material":"green","textures":["floor"]}
+  ]
+}
