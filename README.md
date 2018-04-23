@@ -14,9 +14,9 @@ output bitmap file.
 ./rt_demo <scene_file> <output_file>
 ```
 
-## Example images
+## Example image
 
-> FIXME TODO continue
+![Scene example](doc/res/scene.png)
 
 ## Building raytracer
 
