@@ -4,7 +4,7 @@ Simple toy raytracer using C++11/14 features. Project is composed from
 rendering library `render` written in C++11/14 and demo application
 `rt_demo` demonstrating capabilities of `render` library.
 
-## Documentation
+## Description
 
 Command line utility `rt_demo` reads description of scene to be rendered from
 JSON file, and renders the scene to memory buffer. Buffer is then written to
@@ -13,6 +13,10 @@ output bitmap file.
 ```
 ./rt_demo <scene_file> <output_file>
 ```
+
+### Known issues
+
+  - Unlimited count of reflected rays.
 
 ## Example image
 
