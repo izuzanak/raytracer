@@ -23,7 +23,9 @@ DISABLED_CHECKS="\
 "
 
 # - clang tidy all checks -
-clang-tidy "-checks=$ENABLED_CHECKS,$DISABLED_CHECKS" ../tests/*.cpp -header-filter='.*' > check.log
+clang-tidy "-checks=$ENABLED_CHECKS,$DISABLED_CHECKS" ../tests/src/*.cpp -header-filter='.*' > check.log
+clang-tidy "-checks=$ENABLED_CHECKS,$DISABLED_CHECKS" ../render/src/*.cpp -header-filter='.*' > check.log
+clang-tidy "-checks=$ENABLED_CHECKS,$DISABLED_CHECKS" ../rt_demo/src/*.cpp -header-filter='.*' > check.log
 
 clang-tidy "-checks=$ENABLED_CHECKS,$DISABLED_CHECKS" ../lib/*.cc -header-filter='ccl.*' > check.log
 clang-tidy "-checks=$ENABLED_CHECKS,$DISABLED_CHECKS" ../tests/*.cc -header-filter='ccl.*' > check.log

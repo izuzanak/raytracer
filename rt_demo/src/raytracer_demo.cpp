@@ -90,7 +90,7 @@ bool RaytracerDemo::render()
           dp_t{"<=",5},
         }},
         dp_t{"target",cclvar::dict_t{
-          dp_t{"regex","^NORMAL\\|AMBIENT$"},
+          dp_t{"regex",R"(^NORMAL\|AMBIENT$)"},
         }},
         dp_t{"frequency","pos_float"},
         dp_t{"amplitude","pos_float"},
@@ -317,6 +317,8 @@ bool RaytracerDemo::render()
         normal[2].to_float(),
         material_idx.to_int(),
         std::move(texture_indexes)));
+
+      continue;
     }
 
     // - process sphere geometry -
@@ -332,6 +334,8 @@ bool RaytracerDemo::render()
         geometry["radius"].to_float(),
         material_idx.to_int(),
         std::move(texture_indexes)));
+
+      continue;
     }
 
     // - process triangle geometry -
@@ -349,6 +353,8 @@ bool RaytracerDemo::render()
         v2[0].to_float(),v2[1].to_float(),v2[2].to_float(),
         material_idx.to_int(),
         std::move(texture_indexes)));
+
+      continue;
     }
   }
 
