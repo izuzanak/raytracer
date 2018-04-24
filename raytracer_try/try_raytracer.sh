@@ -39,4 +39,5 @@ cd $ROOT_DIR
 # - render scene -
 #raytracer/build/rt_demo/rt_demo raytracer/tests/data/rt_demo/scene.json scene.bmp
 #raytracer/build/rt_demo/rt_demo raytracer/tests/data/rt_demo/spheres.json spheres.bmp
+#raytracer/build/rt_demo/rt_demo raytracer/tests/data/rt_demo/triangles.json triangles.bmp
 
