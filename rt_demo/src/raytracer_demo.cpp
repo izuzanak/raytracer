@@ -229,7 +229,7 @@ bool RaytracerDemo::render()
     image["sample_side"].to_int());
 
   // - process scene lights -
-  for (auto &light : scene["lights"].to_array())
+  for (const auto &light : scene["lights"].to_array())
   {
     auto position = light["position"];
     auto color = light["color"];
@@ -245,7 +245,7 @@ bool RaytracerDemo::render()
   }
 
   // - process scene materials -
-  for (auto &material : scene["materials"].to_dict())
+  for (const auto &material : scene["materials"].to_dict())
   {
     auto ambient = material.second["ambient"];
 
@@ -262,7 +262,7 @@ bool RaytracerDemo::render()
   }
 
   // - process scene textures -
-  for (auto &texture : scene["textures"].to_dict())
+  for (const auto &texture : scene["textures"].to_dict())
   {
     // - add texture to raytracer scene -
     texture_map[texture.first] = raytracer.add_texture(texture_t(
@@ -274,7 +274,7 @@ bool RaytracerDemo::render()
 
   // - process scene shapes -
   tex_idxs_t texture_indexes;
-  for (auto &shape : scene["shapes"].to_array())
+  for (const auto &shape : scene["shapes"].to_array())
   {
     // - retrieve material index -
     cclvar::var_c material_idx;
@@ -287,7 +287,7 @@ bool RaytracerDemo::render()
     // - process shape textures -
     texture_indexes.clear();
     cclvar::var_c texture_idx;
-    for (auto &tex_name : shape["textures"].to_array())
+    for (const auto &tex_name : shape["textures"].to_array())
     {
       // - retrieve texture index -
       if (!texture_map.has_key(tex_name,texture_idx))

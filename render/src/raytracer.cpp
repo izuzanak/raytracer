@@ -49,7 +49,7 @@ bool Raytracer::ray_hit(const ray_t &a_ray,shape_t *ignore_ptr,float *a_distance
   *a_distance = std::numeric_limits<float>::max();
   *a_shape_ptr = nullptr;
 
-  for (auto &shape : m_shapes)
+  for (const auto &shape : m_shapes)
   {
     float distance;
     if (shape.get() != ignore_ptr && shape->hit(a_ray,&distance) && distance < *a_distance)
@@ -64,7 +64,7 @@ bool Raytracer::ray_hit(const ray_t &a_ray,shape_t *ignore_ptr,float *a_distance
 
 bool Raytracer::shadow_ray_hit(const ray_t &a_ray,shape_t *ignore_ptr,float a_max_distance)
 {/*{{{*/
-  for (auto &shape : m_shapes)
+  for (const auto &shape : m_shapes)
   {
     float distance;
     if (shape.get() != ignore_ptr && shape->hit(a_ray,&distance) && distance < a_max_distance)
@@ -109,7 +109,7 @@ color_t Raytracer::ray_color(const ray_t &a_ray,shape_t *ignore_ptr)
     }
 
     // - process all lights -
-    for (auto &light : m_lights)
+    for (const auto &light : m_lights)
     {
       auto light_vec = light.position() - point;
       auto light_distance = light_vec.length();
