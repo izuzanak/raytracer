@@ -12,7 +12,7 @@ template <typename TYPE>
 class Texture
 {/*{{{*/
 public:
-  enum Type
+  enum class Type
   {/*{{{*/
     TYPE_0 = 0,
     TYPE_1,
@@ -22,7 +22,7 @@ public:
     TYPE_5,
   };/*}}}*/
 
-  enum Target
+  enum class Target
   {/*{{{*/
     AMBIENT = 0,
     NORMAL,
@@ -47,8 +47,8 @@ public:
 
   void format_to_stream(std::ostream &a_os) const
   {/*{{{*/
-    a_os << "Texture{type=" << m_type
-         << ",target=" << m_target
+    a_os << "Texture{type=" << static_cast<int>(m_type)
+         << ",target=" << static_cast<int>(m_target)
          << ",frequency=" << m_frequency
          << ",amplitude=" << m_amplitude << "}";
   }/*}}}*/
@@ -71,31 +71,31 @@ TYPE Texture<TYPE>::sample(const Point<TYPE> &a_point) const
 {/*{{{*/
   switch (m_type)
   {
-  case TYPE_0:
+  case Type::TYPE_0:
     {
       return perlin_noise(a_point);
     }
-  case TYPE_1:
+  case Type::TYPE_1:
     {
       return std::abs(2*(interpolated_noise(a_point) - 0.5));
     }
-  case TYPE_2:
+  case Type::TYPE_2:
     {
       TYPE value = perlin_noise(a_point)*20.0;
       return value - std::floor(value);
     }
-  case TYPE_3:
+  case Type::TYPE_3:
     {
       TYPE value = perlin_noise(a_point)*20.0;
       value -= std::floor(value);
       TYPE value1 = interpolated_noise(a_point*250.0);
       return 0.65*value + 0.35*value1;
     }
-  case TYPE_4:
+  case Type::TYPE_4:
     {
       return 0.5*(1.0 + std::cos(10*a_point.x + 30.0*perlin_noise(a_point)));
     }
-  case TYPE_5:
+  case Type::TYPE_5:
     {
       return 0.5*(1.0 + std::cos(a_point.x + 300.0*perlin_noise(a_point)));
     }

@@ -8,7 +8,7 @@ using render::Image;
 
 void test_texture_construction()
 {/*{{{*/
-  Texture<float> tex1{Texture<float>::TYPE_0,Texture<float>::AMBIENT,0.15,0.2};
+  Texture<float> tex1{Texture<float>::Type::TYPE_0,Texture<float>::Target::AMBIENT,0.15,0.2};
 
   std::ostringstream oss;
   oss << tex1;
@@ -20,7 +20,7 @@ void test_texture_sample()
   uint32_t width = 800;
   uint32_t height = 600;
 
-  Texture<float> tex1{Texture<float>::TYPE_3,Texture<float>::NORMAL,0.01,1.0};
+  Texture<float> tex1{Texture<float>::Type::TYPE_3,Texture<float>::Target::NORMAL,0.01,1.0};
   Image<float> image1{width,height};
 
   for (uint32_t y = 0;y < height;++y)

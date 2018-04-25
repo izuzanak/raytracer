@@ -201,8 +201,8 @@ bool RaytracerDemo::render()
 
   // - texture target string to enum map -
   cclvar::var_c texture_target_map{cclvar::dict_t{
-    dp_t{"AMBIENT",texture_t::Target::AMBIENT},
-    dp_t{"NORMAL" ,texture_t::Target::NORMAL},
+    dp_t{"AMBIENT",static_cast<int>(texture_t::Target::AMBIENT)},
+    dp_t{"NORMAL" ,static_cast<int>(texture_t::Target::NORMAL)},
   }};
 
   // - create raytracer object -

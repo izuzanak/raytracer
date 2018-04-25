@@ -62,13 +62,13 @@ void test_raytracer_render()
   raytracer1.add_light({{ 600.0,-600.0,1000.0},{0.25,0.25, 0.0}});
 
   uint32_t tex1_idx = raytracer1.add_texture(
-      texture_t{texture_t::TYPE_1,texture_t::NORMAL,0.12,0.3});
+      texture_t{texture_t::Type::TYPE_1,texture_t::Target::NORMAL,0.12,0.3});
   uint32_t tex2_idx = raytracer1.add_texture(
-      texture_t{texture_t::TYPE_4,texture_t::AMBIENT,0.025,1.0});
+      texture_t{texture_t::Type::TYPE_4,texture_t::Target::AMBIENT,0.025,1.0});
   uint32_t tex3_idx = raytracer1.add_texture(
-      texture_t{texture_t::TYPE_3,texture_t::AMBIENT,0.01,1.0});
+      texture_t{texture_t::Type::TYPE_3,texture_t::Target::AMBIENT,0.01,1.0});
   uint32_t tex4_idx = raytracer1.add_texture(
-      texture_t{texture_t::TYPE_1,texture_t::AMBIENT,0.04,1.0});
+      texture_t{texture_t::Type::TYPE_1,texture_t::Target::AMBIENT,0.04,1.0});
 
   uint32_t mat1_idx = raytracer1.add_material({{0.15,0.15,0.0},0.3,0.3,15,0.0,0.0});
   uint32_t mat2_idx = raytracer1.add_material({{0.0,0.0,0.0},0.05,0.95,15,0.75,0.0});
@@ -115,13 +115,13 @@ void test_raytracer_render_parallel()
   raytracer1.add_light({{ 600.0,-600.0,1000.0},{0.25,0.25, 0.0}});
 
   uint32_t tex1_idx = raytracer1.add_texture(
-      texture_t{texture_t::TYPE_1,texture_t::NORMAL,0.12,0.3});
+      texture_t{texture_t::Type::TYPE_1,texture_t::Target::NORMAL,0.12,0.3});
   uint32_t tex2_idx = raytracer1.add_texture(
-      texture_t{texture_t::TYPE_4,texture_t::AMBIENT,0.025,1.0});
+      texture_t{texture_t::Type::TYPE_4,texture_t::Target::AMBIENT,0.025,1.0});
   uint32_t tex3_idx = raytracer1.add_texture(
-      texture_t{texture_t::TYPE_3,texture_t::AMBIENT,0.01,1.0});
+      texture_t{texture_t::Type::TYPE_3,texture_t::Target::AMBIENT,0.01,1.0});
   uint32_t tex4_idx = raytracer1.add_texture(
-      texture_t{texture_t::TYPE_1,texture_t::AMBIENT,0.04,1.0});
+      texture_t{texture_t::Type::TYPE_1,texture_t::Target::AMBIENT,0.04,1.0});
 
   uint32_t mat1_idx = raytracer1.add_material({{0.15,0.15,0.0},0.3,0.3,15,0.0,0.0});
   uint32_t mat2_idx = raytracer1.add_material({{0.0,0.0,0.0},0.05,0.95,15,0.75,0.0});
