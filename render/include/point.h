@@ -31,7 +31,7 @@ public:
   Vector<TYPE> operator - (const Point &a_point) const { return {x - a_point.x,y - a_point.y,z - a_point.z}; }
   Point operator * (TYPE a_val) const { return {x*a_val,y*a_val,z*a_val}; }
   Point operator + (const Vector<TYPE> &a_vec) const { return {x + a_vec.x,y + a_vec.y,z + a_vec.z}; }
-  Point absolute() { return {std::abs(x),std::abs(y),std::abs(z)}; }
+  Point absolute() const { return {std::abs(x),std::abs(y),std::abs(z)}; }
 
   void format_to_stream(std::ostream &a_os) const
   {/*{{{*/
